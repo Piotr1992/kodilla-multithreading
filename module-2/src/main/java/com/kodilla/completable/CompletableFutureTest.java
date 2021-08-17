@@ -11,20 +11,17 @@ public class CompletableFutureTest {
 
         final MessageReceiver messageBook = new MessageReceiver();
 
-        final CompletableFuture<Void> futureMessageBook = messageBook.waiting()
-                .thenApply(Book::getCaption)
-                .thenAccept(message -> new Book("title", "author", 2000, ""));
+        final CompletableFuture<Book> futureMessageBook = messageBook.waiting()
+                .thenApply(book -> {
+                    book.setCaption("Signature");
+                    return book;
+                });
         sleep(1);
         System.out.println("Doing something else");
-        futureMessageBook.get();
+        Book book = futureMessageBook.get();
 
-        Book book = messageBook.waiting().get();
+        System.out.println(book);
 
-        book.setCaption("Jan Kowalski");
-
-        System.out.println(book.getCaption());
-
-//        System.out.println(messageBook.waiting().get().getCaption());
 
 /*        final MessageReceiver messageReceiver = new MessageReceiver();
         final CompletableFuture<Void> futureMessage = messageReceiver.receive()
@@ -32,7 +29,7 @@ public class CompletableFutureTest {
                 .thenAccept(message -> System.out.println("Message is " + message));
         sleep(1);
         System.out.println("Doing something else");
-        futureMessage.get();                            */
+        futureMessage.get();            */
 
     }
 }

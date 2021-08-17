@@ -44,4 +44,14 @@ public class Book {
     public void setCaption(String caption) {
         this.caption = caption;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", yearPublish=" + yearPublish +
+                ", caption='" + caption + '\'' +
+                '}';
+    }
 }

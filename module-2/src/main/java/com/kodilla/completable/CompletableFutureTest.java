@@ -1,6 +1,7 @@
 package com.kodilla.completable;
 
 import com.kodilla.completable.homework.Book;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import static com.kodilla.util.SleepUtil.sleep;

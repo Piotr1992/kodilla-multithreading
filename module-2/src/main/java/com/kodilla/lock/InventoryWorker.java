@@ -1,8 +1,8 @@
 package com.kodilla.lock;
 
-import java.util.Random;
+import com.kodilla.util.SleepUtil;
 
-import static com.kodilla.util.SleepUtil.sleep;
+import java.util.Random;
 
 public class InventoryWorker implements Runnable {
 
@@ -18,7 +18,7 @@ public class InventoryWorker implements Runnable {
     public void run() {
         for (int i = 0; i < 5; i++) {
             final Random random = new Random();
-            sleep(random.nextInt(4));
+            SleepUtil.sleep(random.nextInt(4));
             warehouse.showProducts(workerName);
         }
     }

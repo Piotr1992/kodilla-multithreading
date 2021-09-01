@@ -1,10 +1,10 @@
 package com.kodilla.future;
 
+import com.kodilla.util.SleepUtil;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import static com.kodilla.util.SleepUtil.sleep;
 
 public class Processor {
 
@@ -12,7 +12,7 @@ public class Processor {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         return executor.submit(() -> {
             System.out.println("Processor started processing");
-            sleep(5);
+            SleepUtil.sleep(5);
             System.out.println("Processor ended processing");
             return x * 1000;
         });

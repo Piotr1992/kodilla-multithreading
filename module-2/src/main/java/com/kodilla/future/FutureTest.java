@@ -1,9 +1,9 @@
 package com.kodilla.future;
 
+import com.kodilla.util.SleepUtil;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-
-import static com.kodilla.util.SleepUtil.sleep;
 
 public class FutureTest {
 
@@ -13,7 +13,7 @@ public class FutureTest {
 
         while (!futureResult.isDone()) {
             System.out.println("Doing something else");
-            sleep(1);
+            SleepUtil.sleep(1);
         }
 
         final Integer result = futureResult.get();

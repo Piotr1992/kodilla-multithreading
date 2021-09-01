@@ -1,17 +1,17 @@
 package com.kodilla.completable;
 
+import com.kodilla.util.SleepUtil;
+
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-
-import static com.kodilla.util.SleepUtil.sleep;
 
 public class CombineTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         final CompletableFuture<Integer> calculationFuture1 = CompletableFuture.supplyAsync(() -> {
             System.out.println("Calculation 1 in process...");
-            sleep(4);
+            SleepUtil.sleep(4);
             final Random random = new Random();
             final int result = random.nextInt(1000);
             System.out.println("The result of calculation 1 is " + result);
@@ -20,7 +20,7 @@ public class CombineTest {
 
         final CompletableFuture<Integer> calculationFuture2 = CompletableFuture.supplyAsync(() -> {
             System.out.println("Calculation 2 in process...");
-            sleep(2);
+            SleepUtil.sleep(2);
             final Random random = new Random();
             final int result = random.nextInt(10);
             System.out.println("The result of calculation 2 is " + result);
